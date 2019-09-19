@@ -35,6 +35,7 @@ function CharacterStats(statsAtrib) {
     Game.call(this, statsAtrib); //inherits from Game()
     this.healthPoints = statsAtrib.healthPoints;
 }
+CharacterStats.prototype = Object.create(Game.prototype);
 
 CharacterStats.prototype.takeDamage = function() {
     const dmg = this.healthPoints - 2;
@@ -57,6 +58,7 @@ function Humanoid(humanoidAtrib) {
     this.weapons = humanoidAtrib.weapons;
     this.language = humanoidAtrib.language;
 }
+Humanoid.prototype = Object.create(CharacterStats.prototype);
 
 Humanoid.prototype.greet = function() {
     console.log(`Greeting by ${this.name}:`, `Vedui' amin essa naa ${this.name}`);
